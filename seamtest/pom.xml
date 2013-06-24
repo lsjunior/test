@@ -15,6 +15,7 @@
 		<jsf.version>1.2_15-B02</jsf.version>
 		<jsp.version>2.1</jsp.version>
 		<junit.version>4.10</junit.version>
+		<myfaces.version>1.2.12</myfaces.version>
 		<richfaces3.version>3.3.3.Final</richfaces3.version>
 		<seam.version>2.2.2.Final</seam.version>
 		<servlet.version>2.5</servlet.version>
@@ -28,6 +29,7 @@
 			<version>${facelets.version}</version>
 			<scope>compile</scope>
 		</dependency>
+		<!--
 		<dependency>
 			<groupId>javax.faces</groupId>
 			<artifactId>jsf-api</artifactId>
@@ -40,6 +42,7 @@
 			<version>${jsf.version}</version>
 			<scope>provided</scope>
 		</dependency>
+		-->
 		<dependency>
 			<groupId>javax.persistence</groupId>
 			<artifactId>persistence-api</artifactId>
@@ -63,6 +66,18 @@
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.myfaces.core</groupId>
+			<artifactId>myfaces-api</artifactId>
+			<version>${myfaces.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.myfaces.core</groupId>
+			<artifactId>myfaces-impl</artifactId>
+			<version>${myfaces.version}</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
