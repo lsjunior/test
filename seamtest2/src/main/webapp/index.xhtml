@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich" template="/templates/default.xhtml">
+	<ui:define name="title">
+		Count
+	</ui:define>
+	<ui:define name="content">
+		<h:form id="formEdit" prependId="false">
+			<div>
+				<rich:panel header="Count" style="width: 400px; margin: auto;">
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 25%;">Count : </td>
+							<td style="width: 75%;">
+								<h:outputText value="#{applicationCountBean.count}" />
+								-
+								<h:outputText value="#{count}" />
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="text-align: center;">
+								<h:commandButton value="Add" action="#{applicationCountBean.add}" />
+							</td>
+						</tr>
+					</table>					
+				</rich:panel>
+				<rich:panel header="Count" style="width: 400px; margin: auto;">
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 25%;">Count : </td>
+							<td style="width: 75%;">
+								<h:outputText value="#{sessionCountBean.count}" />
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="text-align: center;">
+								<h:commandButton value="Add" action="#{sessionCountBean.add}" />
+							</td>
+						</tr>
+					</table>					
+				</rich:panel>
+				<rich:panel header="Numero" style="width: 400px; margin: auto;">
+					<h:outputText value="#{numeradorProcesso.getProximoNumero(1)}" />		
+				</rich:panel>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

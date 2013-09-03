@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Wicket Test</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>Name</td>
+				<td>Status</td>
+			</tr>
+		</thead>
+		<tbody wicket:id="table">
+			<tr>
+				<td wicket:id="id"></td>
+				<td wicket:id="name"></td>
+				<td wicket:id="status"></td>
+				<td>
+					<a href="#" wicket:id="update">Update</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="#" id="new" wicket:id="new">New</a>
+</body>
+</html>

@@ -9,8 +9,8 @@
                 <driver-class>org.postgresql.Driver</driver-class>
                 <user-name>postgres</user-name>
                 <password>postgres</password>
-                <min-pool-size>1</min-pool-size>
-                <max-pool-size>2</max-pool-size>
+                <min-pool-size>2</min-pool-size>
+                <max-pool-size>4</max-pool-size>
 	</local-tx-datasource>
 </datasources>
 

@@ -1,0 +1,11 @@
+<%
+	session.invalidate();
+%>
+<html>
+	<head>
+		<title>Login</title>
+	</head>
+	<body>
+		Logout
+	</body>
+</html>

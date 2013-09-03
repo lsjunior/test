@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ejb-test" default="compile" basedir=".">
+
+	<property environment="env" />
+
+	<property file="build.properties" />
+
+	<path id="classpath">
+		<fileset dir="${lib}" includes="**/*.jar" />
+		<fileset dir="${libJBoss}" includes="**/*.jar" />
+		<fileset dir="${libJBossEJB3}" includes="**/*.jar" />
+		<pathelement location="${build}" />
+	</path>
+
+	<target name="clean">
+		<delete dir="${build}" includes="**/*" includeemptydirs="true" />
+		<delete dir="${dist}" includes="**/*" includeemptydirs="true" />
+	</target>
+
+	<target name="compile" depends="clean">
+		<mkdir dir="${build}" />
+		<javac classpathref="classpath" destdir="${build}" source="1.5" srcdir="${src}" target="1.5" />
+		<copy todir="${build}">
+			<fileset dir="${resources}">
+				<exclude name="**/.svn" />
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		<copy todir="${build}/lib" failonerror="false">
+			<fileset dir="${lib}">
+				<exclude name="**/.svn" />
+				<include name="**/*.jar" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="build" depends="compile">
+		<mkdir dir="${dist}" />
+		<jar destfile="${dist}/${name}.jar" manifest="${manifest}">
+			<fileset dir="${build}">
+				<exclude name="**/.svn" />
+				<include name="**/*" />
+			</fileset>
+		</jar>
+	</target>
+
+</project>

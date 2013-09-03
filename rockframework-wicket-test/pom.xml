@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.woodstock.rockframework</groupId>
+	<artifactId>rockframework-wicket-test</artifactId>
+	<packaging>war</packaging>
+	<name>rockframework-wicket-test</name>
+
+	<parent>
+		<groupId>net.woodstock.rockframework</groupId>
+		<artifactId>rockframework-web-test-parent</artifactId>
+		<version>1.1.1</version>
+	</parent>
+	
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.wicket</groupId>
+			<artifactId>wicket</artifactId>
+			<version>1.4.9</version>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+</project>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/template/default.xhtml">
+
+	<ui:define name="title">
+        Foo
+    </ui:define>
+
+	<ui:define name="body">
+		<table>
+			<tr>
+				<td>ID</td>
+				<td>Name</td>
+			</tr>
+			<c:forEach items="${fooMB.foos}" var="foo" varStatus="status">
+				<tr>
+					<td>${foo.id}</td>
+					<td>${foo.name}</td>
+					<td>
+						<h:commandLink action="#{fooMB.edit}">
+							<f:setPropertyActionListener value="#{foo.id}" target="#{fooMB.foo.id}"  />
+							Edit
+						</h:commandLink>
+						<h:commandLink action="#{fooMB.delete}">
+							<f:setPropertyActionListener value="#{foo.id}" target="#{fooMB.foo.id}"  />
+							Delete
+						</h:commandLink>
+					</td>
+				</tr>
+			</c:forEach>
+		</table>
+		<div>
+			<h:commandLink action="/foo/save">Save</h:commandLink>
+		</div>
+	</ui:define>
+</ui:composition>

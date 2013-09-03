@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>ws-security</display-name>
+	<servlet>
+		<servlet-name>Calculator</servlet-name>
+		<servlet-class>net.woodstock.rockapi.wssecurity.Calculator</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Calculator</servlet-name>
+		<url-pattern>/Calculator</url-pattern>
+	</servlet-mapping>
+
+	<!-- Security -->
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>WebService</realm-name>		
+	</login-config>
+	<security-role>
+		<description>WebService Users</description>
+		<role-name>user</role-name>
+	</security-role>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>WebServices</web-resource-name>
+			<url-pattern>/Calculator</url-pattern>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>user</role-name>
+		</auth-constraint>
+	</security-constraint>
+</web-app>

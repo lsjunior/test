@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-ws-security xmlns="http://www.jboss.com/ws-security/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.jboss.com/ws-security/config http://www.jboss.com/ws-security/schema/jboss-ws-security_1_0.xsd">
+	<!-- Keystore -->
+	<key-store-file>META-INF/client.keystore</key-store-file>
+	<key-store-password>rockapi</key-store-password>
+	<key-store-type>jks</key-store-type>
+	<!-- Truststore -->
+	<trust-store-file>META-INF/client.truststore</trust-store-file>
+	<trust-store-password>rockapi</trust-store-password>
+	<trust-store-type>jks</trust-store-type>
+	<!-- Password -->
+	<key-passwords>
+		<key-password alias="server" password="rockapi" />
+	</key-passwords>
+	<!-- Config -->
+	<config>
+		<sign type="x509v3" alias="client" />
+		<encrypt type="x509v3" alias="server" />
+		<requires>
+			<signature />
+			<encryption />
+		</requires>
+	</config>
+</jboss-ws-security>

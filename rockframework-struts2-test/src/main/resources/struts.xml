@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="default" namespace="/" extends="rockframework-default">
+		<interceptors>
+			<interceptor name="debug" class="net.woodstock.rockframework.web.struts2.util.DebugInterceptor">
+				<param name="level">WARN</param>
+				<param name="printParameters">true</param>
+				<param name="printSession">false</param>
+			</interceptor>
+			<interceptor-stack name="debugStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="debug" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="debugStack" />		
+	</package>
+
+	<!--
+	<package name="test" namespace="/test" extends="default">
+		<action name="test!*" class="net.woodstock.rockframework.test.struts2.action.TestAction" method="{1}">
+			<result name="success">/test/test.jsp</result>
+		</action>
+		<action name="json!*" class="net.woodstock.rockframework.test.struts2.action.JsonAction" method="{1}">
+			<result name="success" type="rockframework-json">
+				<param name="root">foos</param>
+				<param name="ignoreProperties">bars.foo, bars.baz.*</param>
+			</result>
+		</action>
+		<action name="list!*" class="net.woodstock.rockframework.test.struts2.action.ListAction" method="{1}">
+			<result name="success">/test/list.jsp</result>
+		</action>
+	</package>
+	-->
+
+</struts>

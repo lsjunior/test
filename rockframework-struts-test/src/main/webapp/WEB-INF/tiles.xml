@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>
+
+	<definition name="main" path="/tiles/main.jsp">
+        <put name="title"      value="Index" />
+        <put name="javascript" value="/tiles/javascript.jsp" />
+        <put name="css"        value="/tiles/css.jsp" />
+        <put name="body"       value="/tiles/index.jsp" />
+    </definition>
+    
+    <definition name="/people.tiles" extends="main">
+    	<put name="title" value="People" />
+        <put name="body"  value="/people.jsp" />
+    </definition>
+
+</tiles-definitions>
