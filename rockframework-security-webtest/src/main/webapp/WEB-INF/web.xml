@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+	<display-name>rockframework-security-webtest</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>CRLServlet</servlet-name>
+		<servlet-class>br.net.woodstock.security.webtest.CRLServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CRLServlet</servlet-name>
+		<url-pattern>/crl</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>OCSPServlet</servlet-name>
+		<servlet-class>br.net.woodstock.security.webtest.OCSPServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>OCSPServlet</servlet-name>
+		<url-pattern>/ocsp</url-pattern>
+	</servlet-mapping>
+</web-app>
