@@ -12,10 +12,10 @@ import br.net.woodstock.rockframework.security.cert.CertificateResponse;
 import br.net.woodstock.rockframework.security.cert.ExtendedKeyUsageType;
 import br.net.woodstock.rockframework.security.cert.KeySizeType;
 import br.net.woodstock.rockframework.security.cert.KeyUsageType;
-import br.net.woodstock.rockframework.security.cert.ext.icpbrasil.DadoPessoa;
-import br.net.woodstock.rockframework.security.cert.ext.icpbrasil.PessoaFisicaCertificateExtensionHandler;
-import br.net.woodstock.rockframework.security.cert.ext.icpbrasil.TipoFormato;
 import br.net.woodstock.rockframework.security.cert.impl.BouncyCastleCertificateGenerator;
+import br.net.woodstock.rockframework.security.icpbrasil.cert.DadoPessoa;
+import br.net.woodstock.rockframework.security.icpbrasil.cert.PessoaFisicaCertificateExtension;
+import br.net.woodstock.rockframework.security.icpbrasil.cert.TipoFormato;
 import br.net.woodstock.rockframework.security.store.KeyStoreType;
 import br.net.woodstock.rockframework.security.store.PrivateKeyEntry;
 import br.net.woodstock.rockframework.security.store.Store;
@@ -126,7 +126,7 @@ public abstract class SecurityTestHelper {
 			dadoPessoa.setPis("33333333333");
 			dadoPessoa.setRg("2222222");
 
-			PessoaFisicaCertificateExtensionHandler extension = new PessoaFisicaCertificateExtensionHandler();
+			PessoaFisicaCertificateExtension extension = new PessoaFisicaCertificateExtension();
 
 			extension.setTipoFormato(TipoFormato.A3);
 			extension.setCei("111111111111");
@@ -137,7 +137,7 @@ public abstract class SecurityTestHelper {
 			extension.setTituloEleitor("7777777777777");
 
 			// extensions.process(request);
-			request.getExtensionHandlers().add(extension);
+			request.getExtensions().add(extension);
 
 			// CA
 			request.setIssuer(SecurityTestHelper.getCAIdentity());

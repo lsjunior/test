@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_6.xsd" version="6">
+  <display-name>jee6-test-ear</display-name>
+  <module id="jee6-test-impl">
+    <ejb>jee6-test-impl-1.0.jar</ejb>
+  </module>
+  <module id="jee6-test-web">
+    <web>
+      <web-uri>jee6-test-web-1.0.war</web-uri>
+      <context-root>/jee6-test-web</context-root>
+    </web>
+  </module>
+</application>

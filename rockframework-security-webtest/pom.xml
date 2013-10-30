@@ -66,6 +66,11 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
+			<groupId>br.net.woodstock.rockframework</groupId>
+			<artifactId>rockframework-security-icpbrasil</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<scope>provided</scope>
