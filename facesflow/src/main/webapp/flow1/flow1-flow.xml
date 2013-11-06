@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <flow-definition id="flow1">
+        <flow-return id="returnFromFlow2">
+            <from-outcome>returnFromFlow2</from-outcome>
+        </flow-return>
+        <flow-return id="end">
+            <from-outcome>/index</from-outcome>
+        </flow-return>
+        
+        <!--
+        <start-node>test-1</start-node>
+        <switch id="test-1">
+            <default-outcome>step-1</default-outcome>
+            <case>
+                <if>#{true}</if>
+                <from-outcome>step-2</from-outcome>
+            </case>
+        </switch>
+        <view id="step-1">
+            <vdl-document>/flow1/step-1.xhtml</vdl-document>
+        </view>
+        <view id="step-2">
+            <vdl-document>/flow1/step-2.xhtml</vdl-document>
+        </view>
+        -->
+        <!--
+        <navigation-rule>
+            <from-view-id>*</from-view-id>
+            <navigation-case>
+                <from-action>#{testBean.end}</from-action>
+                <from-outcome>success</from-outcome>
+                <to-view-id>/flow1/step-1.xhtml</to-view-id>
+            </navigation-case>
+        </navigation-rule>
+        -->
+        <!--
+        <navigation-rule>
+            <from-view-id>/flow1/step-1.xhtml</from-view-id>
+            <navigation-case>
+                <from-action>#{f1Bean.next}</from-action>
+                <from-outcome>success</from-outcome>
+                <to-view-id>/flow1/step-2.xhtml</to-view-id>
+            </navigation-case>
+        </navigation-rule> 
+        <navigation-rule>
+            <from-view-id>/flow1/step-2.xhtml</from-view-id>
+            <navigation-case>
+                <from-action>#{f1Bean.next}</from-action>
+                <from-outcome>success</from-outcome>
+                <to-view-id>/flow1/step-1.xhtml</to-view-id>
+            </navigation-case>
+        </navigation-rule>
+        -->
+        <navigation-rule>
+            <from-view-id>*</from-view-id>
+            <navigation-case>
+                <from-outcome>returnFromFlow2</from-outcome>
+                <to-view-id>/flow1/flow1.xhtml</to-view-id>
+            </navigation-case>
+        </navigation-rule>
+        <flow-call id="callFlow2">
+            <flow-reference>
+                <flow-id>flow2</flow-id>
+            </flow-reference>
+            <outbound-parameter>
+                <name>count1</name>
+                <value>#{f1Bean.count}</value>
+            </outbound-parameter>
+            <outbound-parameter>
+                <name>count2</name>
+                <value>#{f1Bean.count}</value>
+            </outbound-parameter>
+        </flow-call>
+    </flow-definition>
+</faces-config>
