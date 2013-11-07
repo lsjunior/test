@@ -1,18 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>br.net.woodstock.jee7test</groupId>
-    <artifactId>facesflow</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
-    
-    <dependencies>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
-    
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.net.woodstock.jee7test</groupId>
+	<artifactId>facesflow</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+
+	<properties>
+		<!-- Maven -->
+		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
+		<!-- Test -->
+		<test />
+		<!-- Version -->
+		<java.version>1.7</java.version>
+		<jee.version>7.0</jee.version>
+		<!-- Plugins -->
+		<plugin.compiler.version>3.1</plugin.compiler.version>
+		<plugin.resources.version>2.6</plugin.resources.version>
+		<plugin.surefire.version>2.16</plugin.surefire.version>
+		<plugin.war.version>2.4</plugin.war.version>
+	</properties>
+
+	<build>
+		<defaultGoal>package</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${plugin.compiler.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>${plugin.resources.version}</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${plugin.surefire.version}</version>
+				<configuration>
+					<failIfNoTests>false</failIfNoTests>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${plugin.war.version}</version>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>${jee.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
 </project>
