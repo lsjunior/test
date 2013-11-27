@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich">
+	<tr>
+		<td><h:outputText value="#{messages['label.tituloEleitor']}" /> : </td>
+		<td>
+			<h:inputText id="tituloEleitor" value="#{pessoaAction.form.tituloEleitor}" size="30" maxlength="100" required="true">
+				<f:validateLength minimum="3" maximum="100" />
+			</h:inputText>
+		</td>
+	</tr>
+</html>

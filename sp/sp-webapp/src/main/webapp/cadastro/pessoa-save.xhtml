@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich" template="/templates/default.xhtml">
+	<ui:define name="title">
+		<h:outputText value="#{messages['label.pessoa']}" />
+	</ui:define>
+	<ui:define name="content">
+		<h:form id="formEdit" prependId="false">
+			<div>
+				<rich:panel header="#{messages['label.pessoa']}" style="width: 400px; margin: auto;">
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 25%;"><h:outputText value="#{messages['label.cpf']}" /> : </td>
+							<td style="width: 75%;">
+								<h:inputText id="cpf" value="#{pessoaAction.form.cpf}" size="15" maxlength="11" required="true">
+									<f:validateLength minimum="11" maximum="11" />
+								</h:inputText>
+							</td>
+						</tr>
+						<tr>
+							<td><h:outputText value="#{messages['label.login']}" /> : </td>
+							<td>
+								<h:inputText id="login" value="#{pessoaAction.form.login}" size="15" maxlength="45" required="true">
+									<f:validateLength minimum="3" maximum="45" />
+								</h:inputText>
+							</td>
+						</tr>
+						<tr>
+							<td><h:outputText value="#{messages['label.nome']}" /> : </td>
+							<td>
+								<h:inputText id="name" value="#{pessoaAction.form.nome}" size="30" maxlength="100" required="true">
+									<f:validateLength minimum="3" maximum="100" />
+								</h:inputText>
+							</td>
+						</tr>
+						<tr>
+							<td><h:outputText value="#{messages['label.senha']}" /> : </td>
+							<td>
+								<h:inputSecret id="password" value="#{pessoaAction.form.senha}" size="15" maxlength="20" required="#{pessoaAction.form.id == null}">
+									<f:validateLength minimum="3" maximum="20" disabled="#{pessoaAction.form.id != null}" />
+								</h:inputSecret>
+							</td>
+						</tr>
+						<ui:include src="pessoa-save-inc.xhtml" />
+						<tr>
+							<td colspan="2" style="text-align: center;">
+								<h:commandButton value="#{messages['label.salvar']}" action="#{pessoaAction.salvar}" />
+								<h:commandButton value="#{messages['label.cancelar']}" action="#{pessoaAction.cancelar}" immediate="true"/>			
+							</td>
+						</tr>
+					</table>					
+				</rich:panel>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

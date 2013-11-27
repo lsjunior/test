@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich" template="/templates/default.xhtml">
+	<ui:define name="title">
+		<h:outputText value="#{messages['label.pessoa']}" />
+	</ui:define>
+	<ui:define name="content">
+		<h:form id="formList" prependId="false">
+			<div>
+				<rich:panel header="#{messages['label.pessoa']}" style="width: 400px; margin: auto;">
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 25%;"><h:outputText value="#{messages['label.nome']}" /> : </td>
+							<td style="width: 75%;">
+								<h:inputText value="#{pessoaAction.filtro.nome}" size="30" maxlength="100" />
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="text-align: center;">
+								<h:commandButton value="#{messages['label.pesquisar']}" action="#{pessoaAction.pesquisar}" />
+								<h:commandButton value="#{messages['label.novo']}" action="#{pessoaAction.novo}"/>
+							</td>
+						</tr>
+					</table>					
+				</rich:panel>
+				<br />
+				<rich:dataTable rows="#{configBean.pageSize}" value="#{pessoaAction.pessoas}" var="pessoa" style="width: 500px; margin: auto;" rendered="#{not empty pessoaAction.pessoas}">
+					<rich:column>
+						<f:facet name="header">
+							<h:outputText value="#{messages['label.cpf']}" />
+						</f:facet>
+						<h:outputText value="#{pessoa.cpf}" />
+					</rich:column>
+					<rich:column>
+						<f:facet name="header">
+							<h:outputText value="#{messages['label.login']}" />
+						</f:facet>
+						<h:outputText value="#{pessoa.login}" />
+					</rich:column>
+					<rich:column>
+						<f:facet name="header">
+							<h:outputText value="#{messages['label.nome']}" />
+						</f:facet>
+						<h:outputText value="#{pessoa.nome}" />						
+					</rich:column>
+					<rich:column>
+						<f:facet name="header">
+							<h:outputText value="#{messages['label.acao']}" />
+						</f:facet>
+						<h:commandLink alt="#{messages['label.editar']}" title="#{messages['label.editar']}" action="#{pessoaAction.editar}">
+							<h:outputText value="#{messages['label.editar']}" />
+							<f:setPropertyActionListener target="#{pessoaAction.id}" value="#{pessoa.id}" />
+						</h:commandLink>
+					</rich:column>
+					<f:facet name="footer">
+						<rich:datascroller maxPages="5" />
+					</f:facet>
+				</rich:dataTable>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

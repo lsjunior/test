@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>sp-api</artifactId>
+	<name>Sistema de processo - API</name>
+	<packaging>jar</packaging>
+	<parent>
+		<groupId>br.net.woodstock.sp</groupId>
+		<artifactId>sp-parent</artifactId>
+		<version>1.0</version>
+	</parent>
+	<dependencies>
+		<dependency>
+			<groupId>br.net.woodstock.rockframework</groupId>
+			<artifactId>rockframework-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.net.woodstock.rockframework</groupId>
+			<artifactId>rockframework-domain</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.net.woodstock.sp</groupId>
+			<artifactId>sp-orm</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.net.woodstock.sp</groupId>
+			<artifactId>sp-util</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.seam</groupId>
+			<artifactId>jboss-seam</artifactId>
+		</dependency>
+	</dependencies>
+</project>

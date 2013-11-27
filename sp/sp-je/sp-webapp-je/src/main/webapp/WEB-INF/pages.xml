@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages login-view-id="/login.xhtml" no-conversation-view-id="/index.xhtml" xmlns="http://jboss.com/products/seam/pages" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.2.xsd">
+	<page view-id="*">
+		<navigation>
+			<rule if-outcome="index">
+				<redirect view-id="/index.xhtml" />
+			</rule>
+		</navigation>
+	</page>
+	
+	<exception class="java.lang.Exception" log="true">
+		<end-conversation />
+		<redirect view-id="/error.xhtml">
+			<message severity="ERROR">#{org.jboss.seam.handledException.message}</message>
+		</redirect>
+	</exception>
+	<exception log="true">
+		<end-conversation />
+		<redirect view-id="/error.xhtml">
+			<message severity="ERROR">#{org.jboss.seam.handledException.message}</message>
+		</redirect>
+	</exception>
+</pages>
