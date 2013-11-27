@@ -17,6 +17,9 @@ public class Pessoa extends Usuario {
 	@Column(name = "nr_cpf", length = 45, nullable = false, unique = true)
 	private String				cpf;
 
+	@Column(name = "nr_titulo_eleitor", length = 45, nullable = true)
+	private String				tituloEleitor;
+
 	public Pessoa() {
 		super();
 	}
@@ -31,6 +34,14 @@ public class Pessoa extends Usuario {
 
 	public void setCpf(final String cpf) {
 		this.cpf = cpf;
+	}
+
+	public String getTituloEleitor() {
+		return this.tituloEleitor;
+	}
+
+	public void setTituloEleitor(final String tituloEleitor) {
+		this.tituloEleitor = tituloEleitor;
 	}
 
 }

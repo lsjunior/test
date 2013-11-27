@@ -80,12 +80,7 @@ public class PessoaAction extends SPAction {
 
 	public String salvar() {
 		try {
-			Pessoa pessoa = new Pessoa();
-			pessoa.setCpf(this.form.getCpf());
-			pessoa.setId(this.form.getId());
-			pessoa.setLogin(this.form.getLogin());
-			pessoa.setNome(this.form.getNome());
-			pessoa.setSenha(this.form.getSenha());
+			Pessoa pessoa = this.toPessoa(this.getForm());
 
 			if (pessoa.getId() != null) {
 				this.pessoaService.atualizar(pessoa);
@@ -98,6 +93,16 @@ public class PessoaAction extends SPAction {
 			this.addError(e);
 		}
 		return null;
+	}
+
+	protected Pessoa toPessoa(final PessoaForm pessoaForm) {
+		Pessoa pessoa = new Pessoa();
+		pessoa.setCpf(pessoaForm.getCpf());
+		pessoa.setId(pessoaForm.getId());
+		pessoa.setLogin(pessoaForm.getLogin());
+		pessoa.setNome(pessoaForm.getNome());
+		pessoa.setSenha(pessoaForm.getSenha());
+		return pessoa;
 	}
 
 	public PessoaForm getForm() {

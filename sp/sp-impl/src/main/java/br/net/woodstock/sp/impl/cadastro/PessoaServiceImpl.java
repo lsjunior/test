@@ -101,6 +101,7 @@ public class PessoaServiceImpl implements PessoaService {
 			p.setCpf(pessoa.getCpf());
 			p.setLogin(pessoa.getLogin());
 			p.setNome(pessoa.getNome());
+			p.setTituloEleitor(pessoa.getTituloEleitor());
 
 			if (pessoa.getStatus() != null) {
 				p.setStatus(pessoa.getStatus());
